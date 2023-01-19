@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     //Animation Section
     [SerializeField] private Animator amim;
 
+    //Bullets and Shot
+
+    [SerializeField] private BulletController bulletREF;
+    [SerializeField] private Transform shotPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,14 @@ public class PlayerController : MonoBehaviour
 
         CharacterMovement();
         Jump();
+
+        //Shot
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shot();
+        }
+
     }
 
     private void CharacterMovement()
@@ -74,6 +87,14 @@ public class PlayerController : MonoBehaviour
             rigidbodyREF.velocity = new Vector2(rigidbodyREF.velocity.x, jumpForce);
         }
 
+    }
+
+
+    private void Shot()
+    {
+
+        var bulletInstance = Instantiate(bulletREF, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0.0f);
+    
     }
 
 }
