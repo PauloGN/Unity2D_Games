@@ -3740,7 +3740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbodyREF: {fileID: 804719221}
   moveSpeed: 8
-  jumpForce: 20
+  jumpForce: 15
   groundPoint: {fileID: 1941610110}
   layerGround:
     serializedVersion: 2

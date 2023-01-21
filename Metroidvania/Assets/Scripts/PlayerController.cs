@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rigidbodyREF;
     private bool isOnGround;
+    private bool canDoubleJump;
+
 
     //Player properties
     [SerializeField] private float moveSpeed;
@@ -80,10 +82,17 @@ public class PlayerController : MonoBehaviour
         amim.SetBool("IsOnGround_Param", isOnGround);
 
         //Jumping
-        if (Input.GetButtonDown("Jump") && isOnGround)
+        if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
         {
-            isOnGround = false;
-
+            if (isOnGround)
+            {
+                canDoubleJump = true;
+            }
+            else
+            {
+                canDoubleJump = false;
+                amim.SetTrigger("DoubleJump_Param");
+            }
             rigidbodyREF.velocity = new Vector2(rigidbodyREF.velocity.x, jumpForce);
         }
 
