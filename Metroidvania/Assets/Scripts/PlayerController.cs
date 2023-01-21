@@ -92,9 +92,8 @@ public class PlayerController : MonoBehaviour
 
     private void Shot()
     {
-
+        amim.SetTrigger("IsShooting_Param");
         var bulletInstance = Instantiate(bulletREF, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0.0f);
-    
     }
 
 }

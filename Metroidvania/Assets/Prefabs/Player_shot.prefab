@@ -136,9 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b60a9a12f336c4b8c76f1d1a403136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 14
   rigidbodyREF: {fileID: 7825909127034788267}
   moveDir: {x: 1, y: 0}
+  impactFX: {fileID: 5130438188241451414, guid: face8c2940ae6e84dbc4133581c0c228, type: 3}
 --- !u!50 &7825909127034788267
 Rigidbody2D:
   serializedVersion: 4

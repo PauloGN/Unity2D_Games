@@ -33,8 +33,9 @@ public class CameraController : MonoBehaviour
     {
         if (playerControllerREF != null)
         {
-            Vector3 cameraPosition = new Vector3(Mathf.Clamp(playerControllerREF.transform.position.x, boundBox.bounds.min.x + halthWidth, boundBox.bounds.max.x - halthWidth),
-                Mathf.Clamp(playerControllerREF.transform.position.y, boundBox.bounds.min.y + halthHeight, boundBox.bounds.max.y -halthHeight), cameraOffset.z);
+            Vector3 cameraPosition = new Vector3(Mathf.Clamp(playerControllerREF.transform.position.x, boundBox.bounds.min.x + halthWidth, boundBox.bounds.max.x - halthWidth),//Player X
+                Mathf.Clamp(playerControllerREF.transform.position.y, boundBox.bounds.min.y + halthHeight, boundBox.bounds.max.y -halthHeight),//Player Y
+                cameraOffset.z);//Stay Camera Z
 
             transform.position = cameraPosition;
         }
