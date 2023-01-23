@@ -7305,6 +7305,7 @@ MonoBehaviour:
   ball: {fileID: 1282463850}
   bulletREF: {fileID: 7825909127034788266, guid: 98eee274aa80cc5468c6d4b35d51e49d, type: 3}
   shotPoint: {fileID: 2052917409}
+  bombREF: {fileID: 8686465135480785787, guid: ace44ca150daa7948ad2d2d0b3a6a5d1, type: 3}
 --- !u!1 &1282463850
 GameObject:
   m_ObjectHideFlags: 0

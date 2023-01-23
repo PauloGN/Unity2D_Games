@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -41,14 +42,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BulletController bulletREF;
     [SerializeField] private Transform shotPoint;
 
+    //Bomb section
+    [SerializeField] private GameObject bombREF;
+
 
     // Start is called before the first frame update
     void Start()
     {
         
         Assert.IsNotNull(rigidbodyREF, "Rigidbody2D is null");
-
-
 
     }
 
@@ -178,8 +180,18 @@ public class PlayerController : MonoBehaviour
 
     private void Shot()
     {
-        amim.SetTrigger("IsShooting_Param");
-        var bulletInstance = Instantiate(bulletREF, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0.0f);
+
+        if (isBallMode)
+        {
+            const float yOffset = .2f;
+            Vector2 position = new Vector2(groundPoint.position.x, groundPoint.position.y + yOffset);
+            var bulletInstance = Instantiate(bombREF, position, groundPoint.rotation);
+        }
+        else if(!isBallMode)
+        {
+            amim.SetTrigger("IsShooting_Param");
+            var bulletInstance = Instantiate(bulletREF, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0.0f);
+        }
     }
 
 
