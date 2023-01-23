@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
     //Animation Section
     [SerializeField] private Animator amim;
+    [SerializeField] public SpriteRenderer mainSpriteRender, dashFXSpriteRender;
+    [SerializeField] private float dashSpriteLifeTime = 0.2f, timeBetweenSpriteImages;
+    private float dashImageTCounter;
+    [SerializeField] private Color dashImageColor;
 
     //Bullets and Shot
     [SerializeField] private BulletController bulletREF;
@@ -111,12 +115,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             dashCounter = dashTime;
+            ShowDashImage();
         }
 
         if(dashCounter > 0.0f)
         {
             rigidbodyREF.velocity = new Vector2(transform.localScale.x * dashSpeed, rigidbodyREF.velocity.y);
             dashCounter -= Time.deltaTime;
+            dashImageTCounter -= Time.deltaTime;
+
+            if(dashImageTCounter <= 0)
+            {
+                ShowDashImage();
+            }
 
             return true;
         }
@@ -130,5 +141,20 @@ public class PlayerController : MonoBehaviour
         amim.SetTrigger("IsShooting_Param");
         var bulletInstance = Instantiate(bulletREF, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0.0f);
     }
+
+
+    private void ShowDashImage()
+    {
+        SpriteRenderer spriteRenderREF = Instantiate(dashFXSpriteRender, transform.position, transform.rotation);
+        spriteRenderREF.sprite = mainSpriteRender.sprite;
+        spriteRenderREF.transform.localScale = transform.localScale;
+        spriteRenderREF.color = dashImageColor;
+
+        Destroy(spriteRenderREF, dashSpriteLifeTime);
+
+        dashImageTCounter = timeBetweenSpriteImages;
+
+    }
+
 
 }

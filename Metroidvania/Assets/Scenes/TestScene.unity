@@ -3748,6 +3748,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   amim: {fileID: 1619446609}
+  mainSpriteRender: {fileID: 1619446608}
+  dashFXSpriteRender: {fileID: 6998259328310080111, guid: 240f436b2e347d944a11eaf83d852660, type: 3}
+  dashSpriteLifeTime: 0.5
+  timeBetweenSpriteImages: 0.0353
+  dashImageColor: {r: 1, g: 1, b: 1, a: 0.27450982}
   bulletREF: {fileID: 7825909127034788266, guid: 98eee274aa80cc5468c6d4b35d51e49d, type: 3}
   shotPoint: {fileID: 2052917409}
 --- !u!1 &1305941309
@@ -3896,8 +3901,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1634360359
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7815371044791450175, guid: 3607ff319a5a56141aa94c66e33ca304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
