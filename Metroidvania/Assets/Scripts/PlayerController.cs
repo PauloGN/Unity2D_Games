@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     //Player properties
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
+    public float dashSpeed;
+    public float dashTime;
+    private float dashCounter;
 
     //Ground and Jump control
     [SerializeField] private Transform groundPoint;
@@ -23,7 +27,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator amim;
 
     //Bullets and Shot
-
     [SerializeField] private BulletController bulletREF;
     [SerializeField] private Transform shotPoint;
 
@@ -40,12 +43,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool bIsDashing = Dash();
 
-        CharacterMovement();
+        if (!bIsDashing)
+        {
+            CharacterMovement();
+        }
         Jump();
 
-        //Shot
-
+        //Shot left moouse click
         if (Input.GetButtonDown("Fire1"))
         {
             Shot();
@@ -84,6 +90,7 @@ public class PlayerController : MonoBehaviour
         //Jumping
         if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
         {
+            //double jump
             if (isOnGround)
             {
                 canDoubleJump = true;
@@ -98,6 +105,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    bool Dash()
+    {
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            dashCounter = dashTime;
+        }
+
+        if(dashCounter > 0.0f)
+        {
+            rigidbodyREF.velocity = new Vector2(transform.localScale.x * dashSpeed, rigidbodyREF.velocity.y);
+            dashCounter -= Time.deltaTime;
+
+            return true;
+        }
+
+
+        return false;
+    }
 
     private void Shot()
     {

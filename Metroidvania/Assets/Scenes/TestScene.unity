@@ -3741,6 +3741,8 @@ MonoBehaviour:
   rigidbodyREF: {fileID: 804719221}
   moveSpeed: 8
   jumpForce: 15
+  dashSpeed: 25
+  dashTime: 0.2
   groundPoint: {fileID: 1941610110}
   layerGround:
     serializedVersion: 2
