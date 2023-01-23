@@ -15,9 +15,14 @@ public class PlayerController : MonoBehaviour
     //Player properties
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
-    public float dashSpeed;
+    [SerializeField] private float dashSpeed;
+
+    //Controllers of time and counters     
     public float dashTime;
     private float dashCounter;
+    private float dashImageTCounter;
+    private float dashRechargeCounter;
+    [SerializeField] private float waitAfterDashin;
 
     //Ground and Jump control
     [SerializeField] private Transform groundPoint;
@@ -27,7 +32,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator amim;
     [SerializeField] public SpriteRenderer mainSpriteRender, dashFXSpriteRender;
     [SerializeField] private float dashSpriteLifeTime = 0.2f, timeBetweenSpriteImages;
-    private float dashImageTCounter;
     [SerializeField] private Color dashImageColor;
 
     //Bullets and Shot
@@ -112,13 +116,23 @@ public class PlayerController : MonoBehaviour
     bool Dash()
     {
 
-        if (Input.GetButtonDown("Fire2"))
+        //Control the frequency of calling dash ability
+        if (dashRechargeCounter > 0)
         {
-            dashCounter = dashTime;
-            ShowDashImage();
+            dashRechargeCounter-=Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                dashCounter = dashTime;
+                ShowDashImage();
+            }
         }
 
-        if(dashCounter > 0.0f)
+
+
+        if (dashCounter > 0.0f)
         {
             rigidbodyREF.velocity = new Vector2(transform.localScale.x * dashSpeed, rigidbodyREF.velocity.y);
             dashCounter -= Time.deltaTime;
@@ -128,6 +142,9 @@ public class PlayerController : MonoBehaviour
             {
                 ShowDashImage();
             }
+
+            //Can dash again
+            dashRechargeCounter = waitAfterDashin;
 
             return true;
         }
@@ -153,7 +170,6 @@ public class PlayerController : MonoBehaviour
         Destroy(spriteRenderREF, dashSpriteLifeTime);
 
         dashImageTCounter = timeBetweenSpriteImages;
-
     }
 
 

@@ -3743,6 +3743,7 @@ MonoBehaviour:
   jumpForce: 15
   dashSpeed: 25
   dashTime: 0.2
+  waitAfterDashin: 0.25
   groundPoint: {fileID: 1941610110}
   layerGround:
     serializedVersion: 2
