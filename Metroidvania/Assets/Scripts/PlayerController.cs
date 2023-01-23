@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float dashImageTCounter;
     private float dashRechargeCounter;
     [SerializeField] private float waitAfterDashin;
+    bool isBallMode;
 
     //Ground and Jump control
     [SerializeField] private Transform groundPoint;
@@ -30,13 +31,16 @@ public class PlayerController : MonoBehaviour
 
     //Animation Section
     [SerializeField] private Animator amim;
+    [SerializeField] private Animator ballAmim;
     [SerializeField] public SpriteRenderer mainSpriteRender, dashFXSpriteRender;
     [SerializeField] private float dashSpriteLifeTime = 0.2f, timeBetweenSpriteImages;
     [SerializeField] private Color dashImageColor;
+    [SerializeField] GameObject standing, ball;
 
     //Bullets and Shot
     [SerializeField] private BulletController bulletREF;
     [SerializeField] private Transform shotPoint;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +55,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool bIsDashing = Dash();
+
+        //holds functionalities for dash and move only dash in no ball mode
+        bool bIsDashing = false;
+        if (!isBallMode)
+        {
+           bIsDashing = Dash();
+        }
+
 
         if (!bIsDashing)
         {
@@ -64,6 +75,9 @@ public class PlayerController : MonoBehaviour
         {
             Shot();
         }
+
+        //Turning modes
+        TurnMode_Ball_Stading();
 
     }
 
@@ -84,8 +98,17 @@ public class PlayerController : MonoBehaviour
             transform.localScale = Vector3.one;
         }
 
-        //Move sideways
-        amim.SetFloat("Speed_Param", Mathf.Abs(currentVelocity));
+
+        //Amination sprites for ball mode and standing mode
+        if (isBallMode)
+        {
+            ballAmim.SetFloat("Speed_Param", Mathf.Abs(currentVelocity));
+        }
+        else if(!isBallMode)
+        {
+            //Move sideways
+            amim.SetFloat("Speed_Param", Mathf.Abs(currentVelocity));
+        }
 
     }
 
@@ -173,4 +196,25 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void TurnMode_Ball_Stading()
+    {
+
+        if (!isBallMode)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                ball.SetActive(true);
+                standing.SetActive(false);
+            }
+        }else if (isBallMode)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                ball.SetActive(false);
+                standing.SetActive(true);
+            }
+        }
+        //checks if the ball sprite is active or not in the scene
+        isBallMode = ball.activeSelf;
+    }
 }
