@@ -6,7 +6,5 @@ public class PlayerAbilityTracker : MonoBehaviour
 {
     public bool bCanDoubleJump, bCanDropBombs, bCanDash, bCanBecomeBall;
 
-
-
-
 }
+
