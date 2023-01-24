@@ -7147,6 +7147,7 @@ GameObject:
   - component: {fileID: 804719222}
   - component: {fileID: 804719221}
   - component: {fileID: 804719223}
+  - component: {fileID: 804719224}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -7228,6 +7229,22 @@ MonoBehaviour:
   bulletREF: {fileID: 7825909127034788266, guid: 98eee274aa80cc5468c6d4b35d51e49d, type: 3}
   shotPoint: {fileID: 2052917409}
   bombREF: {fileID: 8686465135480785787, guid: ace44ca150daa7948ad2d2d0b3a6a5d1, type: 3}
+--- !u!114 &804719224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804719220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c718060b54af24f83982d5d403435c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bCanDoubleJump: 0
+  bCanDropBombs: 0
+  bCanDash: 0
+  bCanBecomeBall: 0
 --- !u!1 &1282463850
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float dashSpeed;
+    private PlayerAbilityTracker abilityTracker;
 
     //Controllers of time and counters     
     public float dashTime;
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         
         Assert.IsNotNull(rigidbodyREF, "Rigidbody2D is null");
-
+        abilityTracker = GetComponent<PlayerAbilityTracker>();
     }
 
     // Update is called once per frame
@@ -70,6 +71,8 @@ public class PlayerController : MonoBehaviour
         {
             CharacterMovement();
         }
+
+        //Jumping
         Jump();
 
         //Shot left moouse click
@@ -78,8 +81,11 @@ public class PlayerController : MonoBehaviour
             Shot();
         }
 
-        //Turning modes
-        TurnMode_Ball_Stading();
+        //Turning modes (Ball and Standing)
+        if (abilityTracker.bCanBecomeBall)
+        {
+            TurnMode_Ball_Stading();
+        }
 
     }
 
@@ -121,7 +127,7 @@ public class PlayerController : MonoBehaviour
         amim.SetBool("IsOnGround_Param", isOnGround);
 
         //Jumping
-        if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
+        if (Input.GetButtonDown("Jump") && (isOnGround || (canDoubleJump && abilityTracker.bCanDoubleJump)))
         {
             //double jump
             if (isOnGround)
@@ -147,8 +153,8 @@ public class PlayerController : MonoBehaviour
             dashRechargeCounter-=Time.deltaTime;
         }
         else
-        {
-            if (Input.GetButtonDown("Fire2"))
+        {   //keep on track if the player can or not dashing
+            if (Input.GetButtonDown("Fire2") && abilityTracker.bCanDash)
             {
                 dashCounter = dashTime;
                 ShowDashImage();
@@ -181,7 +187,7 @@ public class PlayerController : MonoBehaviour
     private void Shot()
     {
 
-        if (isBallMode)
+        if (isBallMode && abilityTracker.bCanDropBombs)
         {
             const float yOffset = .2f;
             Vector2 position = new Vector2(groundPoint.position.x, groundPoint.position.y + yOffset);
