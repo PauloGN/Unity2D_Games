@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AbilityUnlock : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class AbilityUnlock : MonoBehaviour
 
     [SerializeField] EUA_UnlockAbility unlockAbility;
     [SerializeField] GameObject pickupFX;
+    [SerializeField] string unlockedMessage;
+    [SerializeField] TMP_Text unlockText;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -61,6 +64,16 @@ public class AbilityUnlock : MonoBehaviour
                 {
                     Instantiate(pickupFX, transform.position, transform.rotation);
                 }
+
+                //dealing with the text mesh pro
+                unlockText.transform.parent.SetParent(null);
+                unlockText.transform.position = transform.position;
+               
+                unlockText.text = unlockedMessage;
+                unlockText.gameObject.SetActive(true);
+
+                Destroy(unlockText.gameObject, 3.0f);
+
 
                 Destroy(gameObject);
             }
