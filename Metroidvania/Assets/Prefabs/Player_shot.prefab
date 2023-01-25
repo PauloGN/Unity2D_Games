@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 14
+  bulletPower: 2
   rigidbodyREF: {fileID: 7825909127034788267}
   moveDir: {x: 1, y: 0}
   impactFX: {fileID: 5130438188241451414, guid: face8c2940ae6e84dbc4133581c0c228, type: 3}

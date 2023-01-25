@@ -205,11 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.3
+      value: 2.73
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.09
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10968,7 +10968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804719220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.86, y: -4.32, z: 0}
+  m_LocalPosition: {x: -14.14, y: 3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11257,11 +11257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.39
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.09
+      value: 3.79
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11658,9 +11658,10 @@ GameObject:
   - component: {fileID: 1674100373}
   - component: {fileID: 1674100372}
   - component: {fileID: 1674100374}
+  - component: {fileID: 1674100375}
   m_Layer: 0
   m_Name: EnemyWalker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11743,6 +11744,20 @@ MonoBehaviour:
   waitAtPoint: 1
   rigidbodyREF: {fileID: 1674100372}
   amim: {fileID: 1477819629}
+--- !u!114 &1674100375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674100370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80151802898f25e45b48a2e70717b22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 3
+  deathFX: {fileID: 0}
 --- !u!1 &1722448265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11918,11 +11933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.68
+      value: -9.67
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.09
+      value: -7.42
       objectReference: {fileID: 0}
     - target: {fileID: 687061097344247414, guid: 7456306d697b93b4c877ca0be792f80c, type: 3}
       propertyPath: m_LocalPosition.z

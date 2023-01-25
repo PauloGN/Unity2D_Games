@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderREF.transform.localScale = transform.localScale;
         spriteRenderREF.color = dashImageColor;
 
-        Destroy(spriteRenderREF, dashSpriteLifeTime);
+        Destroy(spriteRenderREF.gameObject, dashSpriteLifeTime);
 
         dashImageTCounter = timeBetweenSpriteImages;
     }

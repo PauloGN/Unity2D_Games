@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField] float bulletSpeed;
+    [SerializeField] int bulletPower;
     [SerializeField] Rigidbody2D rigidbodyREF;
     [SerializeField] public Vector2 moveDir;
     [SerializeField] public GameObject impactFX;
@@ -33,10 +34,17 @@ public class BulletController : MonoBehaviour
 
     //Destroy the obj
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision != null)
+        if (other != null)
         {
+
+            if (other.CompareTag("Enemy"))
+            {
+                EnemyHealthController enemyREF = other.GetComponent<EnemyHealthController>();
+                enemyREF.TakeDamage(bulletPower);
+            }
+
             Instantiate(impactFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
