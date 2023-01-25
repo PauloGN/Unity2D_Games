@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7346643602117678841}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PatrollerPoint_1
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7346643602174120423}
   - component: {fileID: 7346643602174120421}
   - component: {fileID: 7346643602174120420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyWalker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,8 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80151802898f25e45b48a2e70717b22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 3
+  totalHealth: 4
   deathFX: {fileID: 3623695366269416619, guid: 1b39caa678979354fab2344673aa2c9d, type: 3}
+  spriteRendererREF: {fileID: 0}
+  colors:
+  - {r: 0.5176471, g: 0, b: 0, a: 1}
+  - {r: 0.9339623, g: 0.20438461, b: 0.6509804, a: 1}
+  - {r: 0.9811321, g: 0.8577192, b: 0.8577192, a: 1}
 --- !u!1 &7346643602545644440
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +159,7 @@ GameObject:
   - component: {fileID: 7346643602545644447}
   - component: {fileID: 7346643602545644445}
   - component: {fileID: 7346643602545644446}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7346643602912184186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PatrollerPoint_3
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -288,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7346643603592213220}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PatrollerPoint_2
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
