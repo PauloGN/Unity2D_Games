@@ -66,16 +66,19 @@ public class AbilityUnlock : MonoBehaviour
                 }
 
                 //dealing with the text mesh pro
-                unlockText.transform.parent.SetParent(null);
-                unlockText.transform.position = transform.position;
+                //unlockText.transform.parent.SetParent(null);
+               // unlockText.transform.position = transform.position;
                
                 unlockText.text = unlockedMessage;
                 unlockText.gameObject.SetActive(true);
 
-                Destroy(unlockText.gameObject, 3.0f);
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<CircleCollider2D>().enabled = false;
+
+                //Destroy(unlockText, 3.0f);
 
 
-                Destroy(gameObject);
+                Destroy(gameObject,3);
             }
         }
     }

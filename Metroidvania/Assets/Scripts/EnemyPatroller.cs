@@ -16,6 +16,7 @@ public class EnemyPatroller : MonoBehaviour
     private float waitcounter;
     private int currentPointIndex;
     private Vector2 moveForward;
+    private Transform[] poitsDestroyerArray;
 
     //Amimation Section
     [SerializeField] Animator amim;
@@ -28,7 +29,7 @@ public class EnemyPatroller : MonoBehaviour
         waitcounter = waitAtPoint;
 
         //deatach points from the enemy body
-        foreach (var point in patrolPoints) { point.SetParent(null); }
+        DeatachButKeepOntrack();
     }
 
     // Update is called once per frame
@@ -90,5 +91,32 @@ public class EnemyPatroller : MonoBehaviour
         //animation
         amim.SetFloat("Speed_Param", Mathf.Abs(rigidbodyREF.velocity.x));
     }
+
+
+    void DeatachButKeepOntrack()
+    {
+
+        int i = 0;
+
+        poitsDestroyerArray = new Transform[patrolPoints.Length];
+
+        foreach (var point in patrolPoints)
+        {
+            point.SetParent(null);
+
+            poitsDestroyerArray[i] = point;
+            i++;
+        }
+    }
+
+    //destroy deatached points if needed
+    void DestroyDetached()
+    {
+        foreach (var item in poitsDestroyerArray)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+
 
 }

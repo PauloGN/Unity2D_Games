@@ -24,7 +24,10 @@ public class EnemyHealthController : MonoBehaviour
                 Instantiate(deathFX, transform.position, transform.rotation);
             }
 
+            //destroy deatached points if needed
+            SendMessage("DestroyDetached");
             Destroy(gameObject);
+            
         }
     }
 

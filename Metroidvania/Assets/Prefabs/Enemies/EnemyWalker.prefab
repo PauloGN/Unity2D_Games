@@ -128,6 +128,7 @@ MonoBehaviour:
   jumpForce: 8
   waitAtPoint: 1
   rigidbodyREF: {fileID: 7346643602174120423}
+  destroyPoint: {fileID: 2615310207478049600, guid: e37c97e4c27b66a43a432f2ff5108f61, type: 3}
   amim: {fileID: 7346643602545644446}
 --- !u!114 &7346643602174120420
 MonoBehaviour:
