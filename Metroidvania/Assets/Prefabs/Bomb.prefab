@@ -123,4 +123,5 @@ MonoBehaviour:
   blastRange: 1.5
   destructibleLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560
+  bombPower: 3

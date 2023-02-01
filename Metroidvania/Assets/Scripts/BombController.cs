@@ -10,6 +10,7 @@ public class BombController : MonoBehaviour
 
     [SerializeField] float blastRange;
     [SerializeField] LayerMask destructibleLayer;
+    [SerializeField] int bombPower;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +38,16 @@ public class BombController : MonoBehaviour
 
             if (objsToDamage.Length > 0)
             {
-                foreach (var item in objsToDamage)
+                foreach (var obj in objsToDamage)
                 {
-                    Destroy(item.gameObject);
+                    if (obj.CompareTag("Enemy"))
+                    {
+                        obj.GetComponent<EnemyHealthController>().TakeDamage(bombPower);
+                    }
+                    else
+                    {
+                        Destroy(obj.gameObject);
+                    }
                 }
             }
         }

@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7346643602117678841, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.35
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7346643602117678842, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
       propertyPath: m_Name
@@ -16018,7 +16018,7 @@ GameObject:
   m_Layer: 8
   m_Name: GroundCheckPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

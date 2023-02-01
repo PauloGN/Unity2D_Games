@@ -62,10 +62,12 @@ public class EnemyPatroller : MonoBehaviour
             }
 
             //Jump
-            if(transform.position.y < patrolPoints[currentPointIndex].position.y)
+            if (transform.position.y < patrolPoints[currentPointIndex].position.y && rigidbodyREF.position.y < 1.0f)
             {
                 rigidbodyREF.velocity = new Vector2(rigidbodyREF.velocity.x, jumpForce);
             }
+
+
 
         }
         else//get at the point
