@@ -9,6 +9,8 @@ public class EnemyHealthController : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] SpriteRenderer spriteRendererREF;
     [SerializeField] Color[] colors;
+    [SerializeField] bool bHasDetachedObj = false;
+
     private int colorsIndex = 2;
 
 
@@ -24,10 +26,12 @@ public class EnemyHealthController : MonoBehaviour
                 Instantiate(deathFX, transform.position, transform.rotation);
             }
 
-            //destroy deatached points if needed
-            SendMessage("DestroyDetached");
+            if (bHasDetachedObj)
+            {
+                //destroy deatached points if needed
+                SendMessage("DestroyDetached");
+            }
             Destroy(gameObject);
-            
         }
     }
 
