@@ -9,9 +9,16 @@ public class EnemyHealthController : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] SpriteRenderer spriteRendererREF;
     [SerializeField] Color[] colors;
-    [SerializeField] bool bHasDetachedObj = false;
+    private bool bHasDetachedObj = false;
 
-    private int colorsIndex = 2;
+    private int colorsIndex;
+
+
+    private void Start()
+    {
+        colorsIndex = colors.Length -1;
+        bHasDetachedObj = GetComponent<EnemyPatroller>();
+    }
 
 
     public void TakeDamage(int dmg)

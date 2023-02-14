@@ -9,12 +9,14 @@ public class EnemyFlyingController : MonoBehaviour
     [SerializeField] float rangeToStartChase;
     [SerializeField] float moveSpeed;
     [SerializeField] float turnSpeed;
+    [SerializeField] Animator amim;
 
 
     private Transform playerTransform;
     private bool isChasing;
     private Vector3 InitialPos;
     private Quaternion InitialRot;
+    private Rigidbody2D rigidbody2;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class EnemyFlyingController : MonoBehaviour
         InitialPos = transform.position;
         InitialRot = transform.rotation;
         playerTransform = FindObjectOfType<PlayerController>().transform;
+        rigidbody2= GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,9 @@ public class EnemyFlyingController : MonoBehaviour
 
     public void ChasePlayer()
     {
+
+       // amim.SetFloat("Speed_Param" ,Mathf.Abs(rigidbody2.velocity.x + rigidbody2.velocity.y) * 10);
+
         if (!isChasing)
         {
 
@@ -54,11 +60,14 @@ public class EnemyFlyingController : MonoBehaviour
                 Quaternion targetRotarion = Quaternion.AngleAxis(angle, Vector3.forward);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotarion, turnSpeed * Time.deltaTime);
-                //transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
-                transform.position += -transform.right * moveSpeed * Time.deltaTime;
+
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+                //transform.position += -transform.right * moveSpeed * Time.deltaTime;
+
             }
             else
             {
+                isChasing = false;
                 GoToInitialPosition();
             }
         }
