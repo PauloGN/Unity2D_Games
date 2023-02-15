@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 128
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 78
+  controlID: 129
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 104
+  controlID: 81
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,9 +363,9 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 0
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -376,18 +376,18 @@ MonoBehaviour:
       y: 21
       width: 1269
       height: 369.3333
-    m_Scale: {x: 0.51296294, y: 0.51296294}
-    m_Translation: {x: 634.5, y: 184.66666}
+    m_Scale: {x: 0.5923996, y: 0.59239954}
+    m_Translation: {x: 634.50006, y: 174.09576}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1236.9315
-      y: -360
-      width: 2473.863
-      height: 720
+      x: -1071.0676
+      y: -293.88235
+      width: 2142.1353
+      height: 623.45306
     m_MinimalGUI: 1
   m_defaultScale: 0.51296294
   m_LastWindowPixelSize: {x: 1903.5, y: 585.5}
@@ -429,8 +429,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -98.666626, y: -26}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -676,9 +676,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 45.994358, y: -1.8659894, z: 0.3940283}
+    m_Target: {x: 535.0606, y: 476.80084, z: 9.182552}
     speed: 2
-    m_Value: {x: 45.994358, y: -1.8659894, z: 0.3940283}
+    m_Value: {x: 535.0606, y: 476.80084, z: 9.182552}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -729,9 +729,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.72386
+    m_Target: 373.45288
     speed: 2
-    m_Value: 12.72386
+    m_Value: 373.45288
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1000,10 +1000,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 26fbffff
+      scrollPos: {x: 0, y: 20.666656}
+      m_SelectedIDs: b6f7ffff
+      m_LastClickedID: -2122
+      m_ExpandedIDs: 90f6ffffb6f7ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1068,21 +1068,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Metroidvania-Assets/Font
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Metroidvania-Assets/Font
   m_LastFoldersGridSize: 53
   m_LastProjectPath: E:\Unity Projects\MetroidVania\Repo\Unity2D_Games\Metroidvania
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 40640000
-    m_LastClickedID: 25664
+    m_SelectedIDs: 36640000
+    m_LastClickedID: 25654
     m_ExpandedIDs: 00000000f4630000f6630000f8630000fa630000fc630000fe630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1138,8 +1138,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000887800009c6700008e6a00002063000092710000506d00007a60000000000000986d00008c6b000086710000946e000040620000c0770000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c6230000887800009c6700008e6a00002063000092710000506d00007a600000986d00008c6b000086710000946e000040620000c077000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1202,7 +1202,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 77.333374
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
