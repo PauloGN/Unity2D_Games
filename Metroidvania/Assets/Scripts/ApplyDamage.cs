@@ -7,6 +7,7 @@ public class ApplyDamage : MonoBehaviour
 
     [SerializeField] int damagePower = 1;
     [SerializeField] GameObject explosiveFX;
+    [SerializeField] bool destroyOnDamage = false;
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -29,14 +30,16 @@ public class ApplyDamage : MonoBehaviour
     private void DealDamage()
     {
         PlayerHealthController.Instance.DamagePlayer(damagePower);
-        
-        if(explosiveFX != null)
+
+        if (destroyOnDamage)
         {
-            Instantiate(explosiveFX, transform.position, transform.rotation);
+            if(explosiveFX != null)
+            {
+                Instantiate(explosiveFX, transform.position, transform.rotation);
+            }
+
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
-
     }
 
 

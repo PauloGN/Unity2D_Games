@@ -80,7 +80,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 7346643602174120417}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 95f379c94e10ae243a8e4d4424a6707b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 4
   deathFX: {fileID: 3623695366269416619, guid: 1b39caa678979354fab2344673aa2c9d, type: 3}
-  spriteRendererREF: {fileID: 0}
+  spriteRendererREF: {fileID: 7346643602545644445}
   colors:
   - {r: 0.5176471, g: 0, b: 0, a: 1}
   - {r: 0.9339623, g: 0.20438461, b: 0.6509804, a: 1}
@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154690a51560c44e9d03f1990ba63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePower: 1
+  explosiveFX: {fileID: 0}
+  destroyOnDamage: 0
 --- !u!1 &7346643602545644440
 GameObject:
   m_ObjectHideFlags: 0

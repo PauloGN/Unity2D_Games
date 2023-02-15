@@ -779,6 +779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePower: 1
+  explosiveFX: {fileID: 3084052912932565097, guid: fd3c0cc3d4d0334489ba2d6d61bf15c9, type: 3}
+  destroyOnDamage: 1
 --- !u!114 &287685418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19476,6 +19478,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  invencibilityLength: 1.2
+  flashLength: 0.1
+  playerSpritesREF:
+  - {fileID: 1619446608}
+  - {fileID: 1282463853}
 --- !u!4 &849287764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7346643602174120416, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
@@ -20111,11 +20118,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7346643602174120416, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
   m_PrefabInstance: {fileID: 1197588306}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1477819630 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7346643602545644445, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
-  m_PrefabInstance: {fileID: 7346643603754889075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1486949477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20720,9 +20722,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWalker
       objectReference: {fileID: 0}
-    - target: {fileID: 7346643602174120420, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
-      propertyPath: spriteRendererREF
-      value: 
-      objectReference: {fileID: 1477819630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
