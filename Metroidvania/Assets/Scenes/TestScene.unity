@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154690a51560c44e9d03f1990ba63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePower: 1
+  damagePower: 5
   explosiveFX: {fileID: 3084052912932565097, guid: fd3c0cc3d4d0334489ba2d6d61bf15c9, type: 3}
   destroyOnDamage: 1
 --- !u!114 &287685418
@@ -19131,6 +19131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2038827540}
     m_Modifications:
+    - target: {fileID: -6826347141749862547, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
+      propertyPath: damagePower
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7346643602117678841, guid: e980e5c4473eb8c49bb0bb7883a7db9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.95
@@ -20027,6 +20031,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1316410536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1316410538}
+  - component: {fileID: 1316410537}
+  m_Layer: 0
+  m_Name: RespawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1316410537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316410536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b7a25b4b4d6354c9fa5aa52392af0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitToRespawn: 2
+--- !u!4 &1316410538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316410536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.82, y: 2.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1351828607
 PrefabInstance:

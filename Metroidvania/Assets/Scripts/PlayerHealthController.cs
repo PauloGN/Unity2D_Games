@@ -84,6 +84,9 @@ public class PlayerHealthController : MonoBehaviour
         {
             health = 0;
             gameObject.SetActive(false);
+
+            RespawnController.instance.Respawn();
+
         }else
         {
             invencibilityCounter=invencibilityLength;
@@ -94,5 +97,11 @@ public class PlayerHealthController : MonoBehaviour
         UIController.Instance.UpdateHealth(health, maxHealth);
     }
 
+    public void RestorePlayerState()
+    {
+        health = maxHealth;
+        UIController.Instance.UpdateHealth(health, maxHealth);
+        PlayerHealthController.Instance.RestorePlayerState();
+    }
 
 }
