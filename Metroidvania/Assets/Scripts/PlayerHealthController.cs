@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 public class PlayerHealthController : MonoBehaviour
 {
     [HideInInspector]
-    public static PlayerHealthController Instance;
+    public static PlayerHealthController instance;
 
     [SerializeField] int maxHealth;
     [SerializeField] float invencibilityLength;
@@ -20,7 +20,15 @@ public class PlayerHealthController : MonoBehaviour
 
     private void Awake()
     {
-        Instance= this;
+        if (instance == null)
+        {           
+            instance= this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -33,7 +41,7 @@ public class PlayerHealthController : MonoBehaviour
 
         health = maxHealth;
 
-        UIController.Instance.UpdateHealth(health, maxHealth);
+        UIController.instance.UpdateHealth(health, maxHealth);
 
     }
 
@@ -94,14 +102,13 @@ public class PlayerHealthController : MonoBehaviour
 
 
 
-        UIController.Instance.UpdateHealth(health, maxHealth);
+        UIController.instance.UpdateHealth(health, maxHealth);
     }
 
     public void RestorePlayerState()
     {
         health = maxHealth;
-        UIController.Instance.UpdateHealth(health, maxHealth);
-        PlayerHealthController.Instance.RestorePlayerState();
+        UIController.instance.UpdateHealth(health, maxHealth);
     }
 
 }

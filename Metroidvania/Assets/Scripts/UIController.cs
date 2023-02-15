@@ -8,11 +8,19 @@ public class UIController : MonoBehaviour
 
     [SerializeField] Slider healthSlider;
 
-    public static UIController Instance;
+    public static UIController instance;
 
     private void Awake()
     {
-        Instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update

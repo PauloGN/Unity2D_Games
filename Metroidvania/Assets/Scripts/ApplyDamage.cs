@@ -29,7 +29,7 @@ public class ApplyDamage : MonoBehaviour
 
     private void DealDamage()
     {
-        PlayerHealthController.Instance.DamagePlayer(damagePower);
+        PlayerHealthController.instance.DamagePlayer(damagePower);
 
         if (destroyOnDamage)
         {
