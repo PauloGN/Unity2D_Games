@@ -46,12 +46,20 @@ public class RespawnController : MonoBehaviour
 
     IEnumerator RespawnCo()
     {
+        playerREF.SetActive(false);
         yield return new WaitForSeconds(waitToRespawn);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        playerREF.transform.position= respawnPoint;
         playerREF.SetActive(true);
         PlayerHealthController.instance.RestorePlayerState();
+        playerREF.transform.position = respawnPoint;
     }
+
+
+    public void SetRespawnPoint(Vector3 newPosition)
+    {
+        respawnPoint = newPosition;
+    }
+
 
 }

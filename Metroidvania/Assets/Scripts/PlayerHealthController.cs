@@ -12,6 +12,7 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField] float invencibilityLength;
     [SerializeField] float flashLength;
     [SerializeField] SpriteRenderer [] playerSpritesREF;
+    [SerializeField] GameObject playerDeathFX;
 
     private int health;
     private float invencibilityCounter;
@@ -91,8 +92,11 @@ public class PlayerHealthController : MonoBehaviour
         if(health <=0)
         {
             health = 0;
-            gameObject.SetActive(false);
-
+            //gameObject.SetActive(false);
+            if (playerDeathFX)
+            {
+                Instantiate(playerDeathFX, transform.position, Quaternion.identity);
+            }
             RespawnController.instance.Respawn();
 
         }else
@@ -109,6 +113,25 @@ public class PlayerHealthController : MonoBehaviour
     {
         health = maxHealth;
         UIController.instance.UpdateHealth(health, maxHealth);
+    }
+
+    public void HealPlayer(int heal)
+    {
+        if (health + heal > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health+= heal;
+        }
+
+        UIController.instance.UpdateHealth(health, maxHealth);
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
 }
