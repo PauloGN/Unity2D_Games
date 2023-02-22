@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private bool bIsOnGround = true;
     private bool bJump = false;
     private bool bDoubleJump;
+    
+    //Items
+    private Weapons weaponInfo;
+
 
 
     // Start is called before the first frame update
@@ -116,6 +120,13 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+
+    public void AddWeapon(Weapons weapon)
+    {
+
+        this.weaponInfo = weapon;
+    
+    }
 
 
 }
