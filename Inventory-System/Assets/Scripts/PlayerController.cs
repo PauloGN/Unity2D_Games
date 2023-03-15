@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundPoint;
     [SerializeField] private LayerMask layerGround;
     [SerializeField] private float jumpForce = 10.0f;
+    [SerializeField] private float attackRate = 0.8f;
 
     //Controllers and references
     Rigidbody2D rbREF;
@@ -18,7 +19,12 @@ public class PlayerController : MonoBehaviour
     private bool bIsOnGround = true;
     private bool bJump = false;
     private bool bDoubleJump;
-    
+    private Animator amim;
+    private Attack attack;
+
+    private float attackCounter = 0.0f;
+
+
     //Items
     private Weapons weaponInfo;
 
@@ -28,15 +34,19 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbREF= GetComponent<Rigidbody2D>();
+        amim= GetComponent<Animator>(); 
         movementSpeed = maxSpeed;
+        attack= GetComponentInChildren<Attack>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        Attack();
+ 
         JumpAndDoubleJumpCheck();
-
+       
     }
 
     private void FixedUpdate()
@@ -71,7 +81,6 @@ public class PlayerController : MonoBehaviour
     private void Flip()
     {
         bIsfacingRight = !bIsfacingRight;
-
         Vector3 myScale = transform.localScale;
         myScale.x *= -1;
         transform.localScale = myScale;
@@ -121,13 +130,27 @@ public class PlayerController : MonoBehaviour
     #endregion
 
 
-    public void AddWeapon(Weapons weapon)
+    public void AddWeapon(Weapons weaponInf)
     {
 
-        this.weaponInfo = weapon;
+        this.weaponInfo = weaponInf;
+        attack.SetWeaponDamage(weaponInfo.weaponDamage);
     
     }
 
+
+    private void Attack()
+    {
+        //gets current game time and compare to attackcouter witch is the current time + time rate
+        bool canAttack = Time.time > attackCounter;
+
+        if (Input.GetButtonDown("Fire1") && weaponInfo != null && canAttack)
+        {
+           amim.SetTrigger("Attack_B");
+           attack.PlayeAttackAnimationClip(weaponInfo.weaponAnimationClip);
+           attackCounter = Time.time + attackRate;
+        }
+    }
 
 }
 

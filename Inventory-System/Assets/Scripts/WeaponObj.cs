@@ -13,20 +13,20 @@ public class WeaponObj : MonoBehaviour
     void Start()
     {
         spriteR = GetComponent<SpriteRenderer>();
-        spriteR.sprite = weaponInfo.weaponSprite;
-
-        
+        spriteR.sprite = weaponInfo.weaponSprite; 
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        PlayerController playerREF= GetComponent<PlayerController>();
+        PlayerController playerREF= other.GetComponent<PlayerController>();
 
         if (playerREF != null)
         {
             playerREF.AddWeapon(weaponInfo);
+            Inventory.Instance.AddWaepon(weaponInfo);
+            Destroy(gameObject);
         }
     }
 
